@@ -1,0 +1,204 @@
+/* Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved. */
+/* SPDX-License-Identifier: MIT-0 */
+
+/* Variables */
+:root {
+  --radius: 12px;
+}
+
+/* Style */
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #334273;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", sans-serif;
+  user-select: none;
+}
+
+#app {
+  height: 100%;
+}
+
+.inner {
+  max-width: 1080px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  align-items: stretch;
+  margin: 0 auto;
+  padding: 40px;
+  height: 100%;
+}
+
+.player-wrapper {
+  width: 100%;
+  height: 50%;
+  position: relative;
+}
+
+video {
+  width: 100%;
+  height: 50%;
+  border-radius: var(--radius);
+  background: #000;
+}
+
+.widget-wrap {
+  min-height: 460px;
+  height: 50%;
+  position: relative;
+  transition: all 0.25s ease-in;
+}
+
+.card {
+  margin: 0 20px;
+  padding: 20px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+  transition: all 1s cubic-bezier(1, -0.56, 0, 1);
+  transform: translate3d(0, 0, 0) scale(1);
+  backface-visibility: hidden;
+  z-index: 1;
+}
+
+.card.drop {
+  opacity: 0;
+  transform: translate3d(0, 200px, -20px) scale(0.92);
+}
+
+h2 {
+  font-size: 25px;
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.answer {
+  height: 50px;
+  line-height: 50px;
+  font-size: 20px;
+  display: flex;
+  text-decoration: none;
+  border: 1px solid #d5dbdb;
+  border-radius: 50px;
+  padding: 0 24px;
+  margin: 10px 0;
+  background: #fafafa;
+  color: #545b64;
+  transition: all 0.05s ease-in-out;
+}
+
+.answer:hover {
+  background: #ebebebe0;
+}
+
+.answer:active {
+  background: #ff9900;
+  border: 1px solid #eb5f07;
+  color: #fff;
+}
+
+.answer.correct {
+  background: #25a702;
+  border: 1px solid #1d8102;
+  color: #fff;
+  animation: blink 0.45s infinite;
+}
+
+.answer.wrong {
+  background: #d13212;
+  border: 1px solid #b7290d;
+  color: #fff;
+  animation: blink 0.45s infinite;
+}
+
+#waiting {
+  top: 100px;
+  left: 0;
+  right: 0;
+  position: absolute;
+  display: flex;
+  align-items: center;
+}
+
+.waiting-text {
+  width: 100%;
+  display: block;
+  text-align: center;
+  font-size: 18px;
+  color: #d5dbdb;
+}
+
+.float {
+  transform: translateY(0px);
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Utility - Position */
+.pos-absolute {
+  position: absolute !important;
+}
+.pos-fixed {
+  position: fixed !important;
+}
+.pos-relative {
+  position: relative !important;
+}
+.top-0 {
+  top: 0 !important;
+}
+.bottom-0 {
+  bottom: 0 !important;
+}
+
+/* Utility - Width/Height */
+.full-width {
+  width: 100%;
+}
+.full-height {
+  height: 100%;
+}
+
+/* Animations */
+@keyframes blink {
+  50% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* Mediaqueries */
+@media (max-width: 767px) {
+  h2 {
+    font-size: 20px;
+  }
+  .card {
+    top: -20px;
+  }
+}
+
+@media (min-width: 767px) {
+  .card {
+    top: -25%;
+  }
+}

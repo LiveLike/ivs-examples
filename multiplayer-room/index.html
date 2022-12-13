@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="modal.css" />
+  <link rel="stylesheet" href="https://websdk.livelikecdn.com/demo/custom-chat.css" />
+
+  <script src="https://player.live-video.net/1.8.0/amazon-ivs-player.min.js"></script>
+  <script src="https://unpkg.com/@livelike/engagementsdk@2.18.0/livelike.umd.dev.js"></script>
+
+</head>
+
+<body>
+  <div class="create-room">
+    <!-- Create a new room -->
+    <label for="room-name">Create a new room</label>
+    <input id="room-name" placeholder="Room Name">
+    <button id="create-room">Create Room</button>
+    <!-- Join existin room -->
+    <label for="room-id">Join existing room</label>
+    <input id="room-id" placeholder="Room Id">
+    <button id="join-room">Join Room</button>
+  </div>
+
+  <div class="app hidden">
+    <!-- Video Player -->
+    <div class="player-container">
+      <div class="players"></div>
+    </div>
+
+    <!-- Member and Chat Drawer Buttons -->
+    <div class="buttons">
+      <button class="open" id="member">Members</button>
+      <button class="open" id="chat">Chat</button>
+    </div>
+
+    <!-- Member list container -->
+    <div class="drawer-container">
+      <div class="drawer hidden" id="member">
+        <button class="close" id="member">Close</button>
+        <div class="member-list"></div>
+      </div>
+    </div>
+
+    <!-- Chat room container -->
+    <div class="drawer-container">
+      <div class="drawer hidden" id="chat">
+        <button class="close" id="chat">Close</button>
+        <livelike-chat roomid="433ef688-b216-40b2-a974-b954bac843a9" showavatar></livelike-chat>
+      </div>
+    </div>
+
+  </div>
+</body>
+<script src="setupPlayer.js"></script>
+<script src="setupLiveLike.js"></script>
+<script src="setupDrawers.js"></script>
+
+</html>

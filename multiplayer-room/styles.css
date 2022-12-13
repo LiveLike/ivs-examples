@@ -1,0 +1,120 @@
+/* App */
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: #24262e;
+}
+.app {
+  visibility: visible;
+  display: flex;
+  justify-content: center;
+}
+.app.hidden {
+  visibility: hidden;
+}
+/* Buttons */
+.buttons {
+    padding: 8px;
+  }
+  .buttons button {
+    border: 2px solid #888;
+    border-radius: 24px;
+    padding: 10px;
+    margin-bottom: 8px;
+    width: 100%;
+    transition: border ease 0.2s;
+  }
+  .buttons button:hover {
+    border: 2px solid #555;
+  }
+/* Drawers */
+.drawer {
+    position: absolute;
+    background: #d0e5ff;
+    height: 90%;
+    border-radius: 10px;
+    top: 16px;
+    right: 16px;
+    padding: 32px 16px 16px 16px;
+    transition: all ease 0.3s;
+    width: 310px;
+}
+.drawer livelike-chat, .drawer livelike-message-list {
+    height: 100%;
+}
+.close {
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    border-radius: 6px;
+}
+.drawer.hidden {
+    right: -360px;
+}
+.member-list {
+  padding: 40px 8px;
+}
+.member {
+  font-size: 20px;
+  padding: 4px 0;
+}
+/* LiveLike */
+.create-room.hidden{
+    /* visibility: hidden; */
+    display: none;
+}
+
+/* Player */
+/* Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved. */
+/* SPDX-License-Identifier: MIT-0 */
+.player-container {
+    max-width: 1280px;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .players {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(100px, 1fr));
+    grid-gap: 5px;
+  }
+  video {
+    width: 100%;
+    border-radius: 12px;
+    background: #000;
+    transition: all .25s cubic-bezier(0.165, 0.840, 0.440, 1.000);
+  }
+  video:not(.featured):hover {
+    opacity: 0.95;
+    z-index: 10;
+    box-shadow: 0 0 20px rgba(0,0,0,.4);
+    cursor: pointer;
+  }
+  video:not(.featured):active {
+    transform: scale(.975);
+    z-index: 10;
+    box-shadow: 0 0 20px rgba(0,0,0,.4);
+  }
+  video.featured {
+    grid-row: 1;
+    grid-column: 1 / 4;
+  }
+  video.featured:hover {
+    cursor: default;
+  }
+  /* Utility - Position */
+  .pos-absolute { position: absolute !important; }
+  .pos-fixed { position: fixed !important; }
+  .pos-relative { position: relative !important; }
+  .top-0 { top: 0 !important; }
+  .bottom-0 { bottom: 0 !important; }
+  
+  /* Utility - Width/Height */
+  .full-width { width: 100%; }
+  .full-height { height: 100%; }

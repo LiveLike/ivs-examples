@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- # Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved. -->
+<!-- # SPDX-License-Identifier: MIT-0 -->
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Amazon IVS Simple Quiz demo</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="custom-widgets.css" />
+  <script src="https://unpkg.com/@livelike/engagementsdk@2.18.0/livelike.umd.dev.js"></script>
+  <script src="https://websdk.livelikecdn.com/demo/custom-widget.js"></script>
+  <script src="https://player.live-video.net/1.8.0/amazon-ivs-player.min.js"></script>
+  <script src="setupPlayer.js" defer></script>
+  <script src="setupLiveLike.js" defer></script>
+  <script src="displayWidget.js"></script>
+</head>
+
+<body>
+  <template kind="text-quiz">
+    <livelike-widget-root class="custom-widget">
+      <livelike-widget-header class="widget-header" slot="header">
+        <livelike-timer class="custom-timer"></livelike-timer>
+        <div class="widget-kind">TEXT QUIZ</div>
+        <livelike-title class="custom-title"></livelike-title>
+      </livelike-widget-header>
+      <livelike-widget-body>
+        <livelike-select>
+          <template>
+            <livelike-option>
+              <div style="width:100%;display:flex;align-items:center;">
+                <livelike-progress></livelike-progress>
+                <livelike-description></livelike-description>
+                <livelike-percentage></livelike-percentage>
+              </div>
+            </livelike-option>
+          </template>
+        </livelike-select>
+      </livelike-widget-body>
+    </livelike-widget-root>
+  </template>
+  <template kind="cheer-meter" id="custom-cheer">
+    <livelike-widget-root class="custom-widget">
+      <livelike-widget-header class="widget-header" slot="header">
+        <livelike-timer class="custom-timer"></livelike-timer>
+        <div class="widget-kind">CHEER METER</div>
+        <livelike-title class="custom-title"></livelike-title>
+      </livelike-widget-header>
+      <livelike-widget-body>
+        <div class="cheer-image-body">
+          <livelike-vote-count></livelike-vote-count>
+          <livelike-select class="image-grid">
+            <template>
+              <livelike-option>
+                <custom-cheer-option></custom-cheer-option>
+              </livelike-option>
+            </template>
+          </livelike-select>
+        </div>
+      </livelike-widget-body>
+    </livelike-widget-root>
+  </template>
+  <div id="app">
+    <div class="inner">
+      <!-- Player wrapper, forcing 16:9 aspect ratio -->
+      <video id="video-player" class="el-player" playsinline></video>
+
+      <!-- Widget UI -->
+      <div class="widget-wrap">
+        <div id="waiting">
+          <span class="waiting-text float">Waiting for the next question</span>
+        </div>
+        <livelike-widgets programid="7f334b7f-355b-4c54-9c6a-964c89b11b4e"></livelike-widgets>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
